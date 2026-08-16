@@ -1,5 +1,23 @@
-data/
-.vscode
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+venv/
+.venv/
+env/
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+.env
+.env.local
+
+.DS_Store
 Thumbs.db
 
+*.log
+
+data/
