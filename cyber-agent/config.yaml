@@ -1,0 +1,19 @@
+email:
+  default_recipient: xxx@163.com
+  password: YOUR_EMAIL_SMTP_PASSWORD
+  smtp_port: 587
+  smtp_server: smtp.qq.com
+  username: xxx@qq.com
+kb:
+  chunk_overlap: 50
+  chunk_size: 500
+  persist_directory: ./data/vector_store
+llm:
+  api_key: YOUR_API_KEY
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  embedding:
+    api_key: YOUR_API_KEY
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model: text-embedding-v4
+  model: qwen-max
+  provider: qwen

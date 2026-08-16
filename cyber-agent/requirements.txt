@@ -1,0 +1,12 @@
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.2.0
+chromadb>=0.5.0
+streamlit>=1.35.0
+PyYAML>=6.0
+pypdf>=5.0
+APScheduler>=3.10
+unstructured>=0.15.0
+markdown>=3.5.0
+langchain-chroma>=0.1.0
