@@ -34,6 +34,15 @@ api_key: "YOUR_API_KEY_HERE"
 email: "YOUR_EMAIL_HERE"
 ```
 
+或者启动项目后在网页侧边栏中填入你的API KEY 和邮箱相关配置
+
+> **注意**：
+> ```yaml
+> email:
+>     password: YOUR_EMAIL_SMTP_PASSWORD
+> ```
+> 中的`YOUR_EMAIL_SMTP_PASSWORD`不是你的邮箱账户密码，是邮箱SMTP服务提供的**授权码**
+
 ### 3. 启动项目
 
 ```bash
