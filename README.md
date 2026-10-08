@@ -22,7 +22,7 @@
 ### 1. 安装依赖
 
 ```bash
-pip install -r cyber-agent/requirements.txt
+conda run -n rag python -m pip install -r requirements.txt
 ```
 
 ### 2. 配置信息
@@ -50,3 +50,26 @@ python cyber-agent/run.py
 ```
 
 启动后会自动打开浏览器，即可开始使用。
+
+## 单元测试
+
+测试使用 pytest，覆盖提醒时间解析、文档处理、知识库检索、提醒管理、Agent 工具流程和邮件发送。大模型、向量数据库、SMTP 和后台调度器均使用 mock；不会调用模型 API、发送真实邮件或修改已有知识库。文档解析使用测试临时文件，Agent 流程使用真实 LangGraph 编排和模拟模型输出。
+
+请在项目根目录使用 Conda 的 `rag` 环境安装依赖并运行：
+
+```powershell
+conda run -n rag python -m pip install -r requirements.txt
+conda run -n rag python -m pytest
+```
+
+测试位于根目录的 `tests/`，与源码目录 `cyber-agent/` 平级；依赖文件 `requirements.txt` 也位于根目录。根目录的 `pytest.ini` 配置测试路径和模块导入路径。时间解析测试固定当前时间为 `2026-10-08 10:00:00`，不依赖实际执行日期。
+
+如果 Windows 下 Conda 捕获中文测试输出时出现 GBK 编码错误，可在当前 PowerShell 会话中使用：
+
+```powershell
+$env:PYTHONIOENCODING = "utf-8"
+$env:PYTHONUTF8 = "1"
+conda run --no-capture-output -n rag python -m pytest -q --tb=short
+```
+
+已知缺陷使用 `xfail(strict=True)` 记录期望行为：下午时间转换、无效时分处理、拒绝过去日期、非法完整日期被降级解析成当天时间、工具异常恢复和来源跨轮累积。这些用例的预期失败不代表功能已修复；修复后会显示 XPASS 并使测试失败，此时应移除相应 xfail 标记。
