@@ -19,5 +19,6 @@ env/
 Thumbs.db
 
 *.log
+*.zip
 
 data/
